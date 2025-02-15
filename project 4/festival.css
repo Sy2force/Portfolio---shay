@@ -1,0 +1,230 @@
+:root {
+  --primary-color: #6a0dad;
+  --secondary-color: #ff69b4;
+  --accent-color: #ffd700;
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Navigation */
+.main-nav {
+  background-color: var(--primary-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Header */
+.festival-header {
+  padding: 2rem 0;
+  background-color: #2a2a2a;
+  text-align: center;
+}
+
+.festival-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+.profile-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+.event-date, .event-location {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* Lineup Section */
+.lineup-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.artist-card {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.artist-card h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.artist-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.artist-card li {
+  margin: 0.5rem 0;
+}
+
+/* Ticket Section */
+.ticket-section {
+  padding: 2rem;
+  background-color: #2a2a2a;
+}
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ticket-card {
+  background-color: var(--background-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.ticket-card h3 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.ticket-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+/* Form */
+.reservation-section {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.form-groups-inline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.total-price {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--accent-color);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Footer */
+.page-footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--primary-color);
+}
+
+.back-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: transparent;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.back-button:hover {
+  background-color: var(--text-color);
+  color: var(--primary-color);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .form-groups-inline {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+  }
+
+  .profile-info h1 {
+    font-size: 2rem;
+  }
+}

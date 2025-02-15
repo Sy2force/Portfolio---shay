@@ -1,0 +1,326 @@
+/* Professional color palette */
+:root {
+  --primary-blue: #1A5F7A;     /* Deep confident blue */
+  --secondary-blue: #159895;   /* Secondary blue */
+  --accent-blue: #57C5B6;      /* Accent blue */
+  --background-light: #F8F9FA; /* Light background */
+  --text-dark: #333333;        /* Dark text */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Heebo', sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+/* Navigation */
+.main-nav {
+  background-color: var(--primary-blue);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-blue);
+}
+
+/* Profile Header */
+.profile-header {
+  background-color: var(--secondary-blue);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.profile-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile-pic img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid var(--accent-blue);
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.profile-info h1 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.profile-info p {
+  font-size: 1.2rem;
+  color: var(--accent-blue);
+}
+
+/* About Section */
+.about-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+.section-title {
+  color: var(--primary-blue);
+  border-bottom: 3px solid var(--accent-blue);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.about-content {
+  display: flex;
+  gap: 30px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+}
+
+.cv-download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-button {
+  background-color: var(--primary-blue);
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: var(--secondary-blue);
+}
+
+/* Experience Section */
+.experience-section, .skills-section, .contact-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.experience-section h2, 
+.skills-section h2, 
+.contact-section h2 {
+  color: var(--primary-blue);
+  margin-bottom: 30px;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.experience-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: left;
+}
+
+.experience-card h3 {
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+}
+
+.experience-card .date {
+  color: var(--secondary-blue);
+  margin-bottom: 15px;
+}
+
+.experience-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.skill-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+}
+
+.skill-card i {
+  font-size: 3rem;
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+}
+
+.skill-card h3 {
+  color: var(--secondary-blue);
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: var(--background-light);
+  padding: 50px 20px;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--primary-blue);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--secondary-blue);
+  border-radius: 5px;
+}
+
+.contact-form button {
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--secondary-blue);
+}
+
+.page-footer {
+    padding: 2rem;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.back-button::before {
+    content: "←";  /* Back arrow */
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+.back-button:hover::before {
+    transform: translateX(-4px);
+}
+
+.back-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .back-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .experience-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}

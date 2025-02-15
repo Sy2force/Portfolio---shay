@@ -1,0 +1,250 @@
+:root {
+  --racing-red: #ff1e1e;
+  --racing-black: #1a1a1a;
+  --racing-yellow: #ffd700;
+  --racing-blue: #0066cc;
+  --racing-white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--racing-black);
+  color: var(--racing-white);
+}
+
+/* Racing Stripes */
+.racing-stripe {
+  height: 10px;
+  background: repeating-linear-gradient(
+    45deg,
+    #000 0px,
+    #000 10px,
+    #fff 10px,
+    #fff 20px
+  );
+}
+
+/* Navigation */
+.main-nav {
+  background-color: var(--racing-red);
+  padding: 1rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: var(--racing-white);
+  text-decoration: none;
+  font-family: 'Racing Sans One', cursive;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.checkered-flag {
+  width: 40px;
+  height: 40px;
+  background: repeating-linear-gradient(
+    45deg,
+    #000 0px,
+    #000 10px,
+    #fff 10px,
+    #fff 20px
+  );
+  transform: skew(-15deg);
+}
+
+/* Header */
+.racing-header {
+  background: linear-gradient(135deg, var(--racing-black) 0%, #333 100%);
+  padding: 3rem 0;
+}
+
+.header-decorations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.racing-line {
+  height: 2px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--racing-yellow), transparent);
+}
+
+.racing-image {
+  max-width: 300px;
+  border: 3px solid var(--racing-red);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 30, 30, 0.3);
+}
+
+.profile-info h1 {
+  font-family: 'Racing Sans One', cursive;
+  font-size: 3.5rem;
+  color: var(--racing-red);
+  margin: 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.racing-tagline {
+  font-size: 1.5rem;
+  color: var(--racing-yellow);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Packages */
+.racing-packages {
+  padding: 2rem;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.package-card {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid var(--racing-red);
+  transform: skew(-5deg);
+  transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+  transform: skew(-5deg) scale(1.05);
+}
+
+.package-card h3 {
+  color: var(--racing-yellow);
+  font-family: 'Racing Sans One', cursive;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.package-price {
+  font-size: 2rem;
+  color: var(--racing-white);
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* Form */
+.racing-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.racing-form {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid var(--racing-red);
+}
+
+.racing-form label {
+  color: var(--racing-yellow);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.form-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #333;
+  border: 2px solid var(--racing-blue);
+  border-radius: 5px;
+  color: var(--racing-white);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--racing-yellow);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.racing-button {
+  background-color: var(--racing-red);
+  color: var(--racing-white);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.racing-button:hover {
+  background-color: var(--racing-yellow);
+  color: var(--racing-black);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.racing-footer {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.back-button {
+  display: inline-block;
+  background-color: var(--racing-blue);
+  color: var(--racing-white);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: var(--racing-yellow);
+  color: var(--racing-black);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .nav-link {
+    font-size: 1.5rem;
+  }
+  
+  .form-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+}

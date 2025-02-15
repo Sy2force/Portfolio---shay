@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herzliya Restaurant - Reservation</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="restaurant.css">
+</head>
+
+<body>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="#" class="nav-link">Reservation - Herzliya Restaurant</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <header class="profile-header" id="home">
+      <div class="profile-content">
+        <img src="reservated.png" alt="Herzliya Restaurant">
+        <div class="profile-info">
+          <h1>Azure Pearl</h1>
+          <p>Refined Mediterranean Cuisine in the Heart of Herzliya</p>
+        </div>
+      </div>
+    </header>
+
+    <section id="reservation" class="reservation-section">
+      <div class="reservation-container">
+        <h2>Reserve Your Table</h2>
+        <form class="contact-form" id="reservationForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time" required>
+          </div>
+          <div class="form-group">
+            <label for="guests">Number of People</label>
+            <select id="guests" name="guests" required>
+              <option value="">Select</option>
+              <option value="1">1 person</option>
+              <option value="2">2 people</option>
+              <option value="3">3 people</option>
+              <option value="4">4 people</option>
+              <option value="5">5 people</option>
+              <option value="6">6 people</option>
+              <option value="7">7 people</option>
+              <option value="8">8 people or more</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="occasion">Special Occasion</label>
+            <select id="occasion" name="occasion">
+              <option value="">Select (optional)</option>
+              <option value="anniversary">Birthday</option>
+              <option value="business">Business Meal</option>
+              <option value="romantic">Romantic Dinner</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Special Requests</label>
+            <textarea id="message" name="message"
+              placeholder="Allergies, dietary preferences, or other special requests"></textarea>
+          </div>
+          <button type="submit" class="submit-button">
+            Confirm Reservation
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <a href="option.html" class="back-button">
+      Back to Previous Page
+    </a>
+  </footer>
+
+  <script src="restaurant.js"></script>
+</body>
+
+</html>

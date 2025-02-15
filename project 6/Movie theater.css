@@ -1,0 +1,295 @@
+/* Variables de Couleurs Cyberpunk */
+:root {
+    --neon-blue: #00f3ff;      /* Bleu néon lumineux */
+    --neon-purple: #9d4edd;    /* Violet néon */
+    --neon-pink: #ff00ff;      /* Rose néon vif */
+    --space-black: #0a0a0a;    /* Noir profond de l'espace */
+    --cyber-blue: #00bcd4;     /* Bleu cyber */
+    --text-light: #ffffff;     /* Blanc pour le texte */
+    --glass-bg: rgba(255, 255, 255, 0.05);  /* Fond vitré transparent */
+}
+
+/* Réinitialisation et Style de Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: var(--space-black);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* Fond Spatial Cyberpunk */
+.space-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(157, 78, 221, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 243, 255, 0.2) 0%, transparent 50%),
+        var(--space-black);
+    z-index: -1;
+}
+
+/* Navigation Principale */
+.main-nav {
+    background: linear-gradient(90deg, 
+        rgba(10, 10, 10, 0.9), 
+        rgba(157, 78, 221, 0.2), 
+        rgba(10, 10, 10, 0.9));
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--neon-purple);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Liens de Navigation */
+.nav-link {
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px var(--neon-blue);
+    letter-spacing: 2px;
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: scale(1.1);
+}
+
+/* En-tête Cinéma */
+.cinema-header {
+    width: 100%;
+    max-width: 1336px;
+    height: 595px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(var(--space-black), rgba(0, 243, 255, 0.1), var(--space-black));
+    overflow: hidden;
+}
+
+/* Image de l'En-tête */
+.cinema-image {
+    width: 100%;
+    height: 595px;
+    object-fit: cover;
+    border: 2px solid var(--neon-purple);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--neon-purple);
+}
+
+/* Informations de Profil */
+.profile-info h1 {
+    color: var(--neon-blue);
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* Sections de Films et de Billets */
+.movies-section, 
+.ticket-section {
+    padding: 3rem 1rem;
+}
+
+/* Grilles de Films et de Billets */
+.movies-grid, 
+.ticket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+/* Cartes de Films et de Billets */
+.movie-card, 
+.ticket-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--neon-purple);
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet de Survol sur les Cartes */
+.movie-card:hover, 
+.ticket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--neon-purple);
+}
+
+/* Prix des Billets */
+.ticket-price {
+    font-size: 2.5rem;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Section de Réservation */
+.reservation-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Formulaire de Contact */
+.contact-form {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--neon-blue);
+}
+
+/* Groupes de Formulaire */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group label {
+    color: var(--neon-blue);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Champs de Saisie */
+.form-group input,
+.form-group select {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 0.8rem;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--neon-purple);
+    border-radius: 5px;
+    color: var(--text-light);
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Focus sur les Champs */
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Bouton de Soumission */
+.submit-button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+    border: none;
+    border-radius: 5px;
+    color: var(--text-light);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* Bouton de Retour */
+.back-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.back-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg, 
+        transparent, 
+        rgba(0, 243, 255, 0.2), 
+        transparent
+    );
+    transition: all 0.5s ease;
+}
+
+.back-button:hover {
+    background: var(--neon-blue);
+    color: var(--space-black);
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.back-button:hover::before {
+    left: 100%;
+}
+
+/* Design Responsive */
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 0.9rem;
+        margin: 0 0.5rem;
+    }
+
+    .profile-info h1 {
+        font-size: 2rem;
+    }
+
+    .cinema-header {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .cinema-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .movies-grid, 
+    .ticket-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group input,
+    .form-group select,
+    .submit-button {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summer Festival - Reservation</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="festival.css">
+</head>
+
+<body>
+  <div class="festival-bg"></div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="stage-light left"></div>
+      <a href="#" class="nav-link">MEGA FESTIVAL 2025</a>
+      <div class="stage-light right"></div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <header class="profile-header festival-header">
+      <div class="profile-content">
+        <div class="header-decorations">
+          <div class="stage-effect left"></div>
+          <img src="festival.png" alt="Summer Festival" class="festival-image">
+          <div class="stage-effect right"></div>
+        </div>
+        <div class="profile-info">
+          <h1>SUMMER FESTIVAL</h1>
+          <h2>Solar Bay Festival</h2>
+          <p class="event-date">JULY 15-16-17 2025</p>
+          <p class="event-location">Aurelia Bay, a Secret Tropical Island</p>
+        </div>
+      </div>
+    </header>
+
+    <section id="artists" class="lineup-section">
+      <h2>LINEUP</h2>
+      <div class="artists-grid">
+        <div class="artist-card">
+          <h3>DAY 1</h3>
+          <ul>
+            <li>COLDPLAY</li>
+            <li>IMAGINE DRAGONS</li>
+            <li>ARCTIC MONKEYS</li>
+          </ul>
+        </div>
+        <div class="artist-card">
+          <h3>DAY 2</h3>
+          <ul>
+            <li>ED SHEERAN</li>
+            <li>BILLIE EILISH</li>
+            <li>THE WEEKND</li>
+          </ul>
+        </div>
+        <div class="artist-card">
+          <h3>DAY 3</h3>
+          <ul>
+            <li>STROMAE</li>
+            <li>ORELSAN</li>
+            <li>ANGÈLE</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="tickets" class="ticket-section">
+      <div class="ticket-grid">
+        <div class="ticket-card">
+          <h3>1 DAY PASS</h3>
+          <div class="ticket-price">75€</div>
+        </div>
+        <div class="ticket-card">
+          <h3>2 DAY PASS</h3>
+          <div class="ticket-price">140€</div>
+        </div>
+        <div class="ticket-card">
+          <h3>3 DAY PASS</h3>
+          <div class="ticket-price">200€</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservation" class="reservation-section">
+      <div class="reservation-container">
+        <h2>BOOK YOUR TICKETS</h2>
+        <form class="contact-form" id="reservationForm">
+          <div class="form-group">
+            <label for="name">FULL NAME</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">PHONE</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="pass-type">PASS TYPE</label>
+            <select id="pass-type" name="pass-type" required>
+              <option value="">Select</option>
+              <option value="1day">1 DAY PASS - 75€</option>
+              <option value="2days">2 DAY PASS - 140€</option>
+              <option value="3days">3 DAY PASS - 200€</option>
+            </select>
+          </div>
+          <div class="form-groups-inline">
+            <div class="form-group">
+              <label for="quantity">NUMBER OF PASSES</label>
+              <select id="quantity" name="quantity" required>
+                <option value="">Select</option>
+                <option value="1">1 pass</option>
+                <option value="2">2 passes</option>
+                <option value="3">3 passes</option>
+                <option value="4">4 passes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="age">AGE</label>
+              <input type="number" id="age" name="age" min="16" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="camping">CAMPING OPTION</label>
+            <select id="camping" name="camping">
+              <option value="no">Without camping</option>
+              <option value="yes">With camping (+30€)</option>
+            </select>
+          </div>
+          <div id="total-price" class="total-price">
+            Total: 0€
+          </div>
+          <button type="submit" class="submit-button">
+            BOOK NOW
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="stage-light"></div>
+    <a href="file:///Users/shayacoca/portfolio%20-%20%20shay/project%204/option4.html" class="back-button">
+      BACK
+    </a>
+  </footer>
+
+  <script src="festival.js"></script>
+</body>
+
+</html>

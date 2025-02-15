@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMAX 8D Cinema</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="Movie theater.css">
+</head>
+
+<body>
+  <!-- Title -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a class="nav-link">IMAX 8D - Reservation</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <main id="main-content">
+    <header class="profile-header" id="home">
+      <div class="profile-content">
+        <img src="cinema .png" alt="IMAX 8D Cinema" class="cinema-image">
+        <div class="profile-info">
+          <h1>IMAX 8D EXPERIENCE</h1>
+          <p>The Future of Cinema is Now</p>
+        </div>
+      </div>
+    </header>
+
+    <!--Book Your Session-->
+    <section id="reservation" class="reservation-section">
+      <div class="reservation-container">
+        <h2>Book Your Session</h2>
+        <form class="contact-form" id="reservationForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="movie">Movie</label>
+            <select id="movie" name="movie" required>
+              <option value="">Select</option>
+              <option value="avatar">AVATAR 3</option>
+              <option value="dune">DUNE PART II</option>
+              <option value="starwars">STAR WARS X</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="time">Showtime</label>
+            <select id="time" name="time" required>
+              <option value="">Select</option>
+              <option value="14">2:30 PM</option>
+              <option value="17">5:45 PM</option>
+              <option value="21">9:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tickets">Number of Tickets</label>
+            <select id="tickets" name="tickets" required>
+              <option value="">Select</option>
+              <option value="1">1 ticket</option>
+              <option value="2">2 tickets</option>
+              <option value="3">3 tickets</option>
+              <option value="4">4 tickets</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="type">Ticket Type</label>
+            <select id="type" name="type" required>
+              <option value="standard">Standard (20€)</option>
+              <option value="premium">Premium (30€)</option>
+              <option value="vip">VIP (45€)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="extras">Options</label>
+            <select id="extras" name="extras">
+              <option value="none">No Options</option>
+              <option value="snacks">Snack Pack (+10€)</option>
+              <option value="combo">Combo Pack (+15€)</option>
+            </select>
+          </div>
+          <div id="total-price" class="total-price">
+            Total: 0€
+          </div>
+          <button type="submit" class="submit-button">
+            Confirm Reservation
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!--Footer-->
+  <footer class="page-footer">
+    <a href="file:///Users/shayacoca/portfolio%20-%20%20shay/portfolio/Page-index.html#about" class="back-button">
+      Back to Previous Page
+    </a>
+  </footer>
+
+  <script src="Movie theater.js"></script>
+</body>
+
+</html>

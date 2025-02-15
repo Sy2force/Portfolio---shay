@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Racing Kart - Reservation</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="karting.css">
+</head>
+
+<body>
+  <div class="racing-stripe"></div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="checkered-flag"></div>
+      <a href="#" class="nav-link">RACING KART - RESERVATION</a>
+      <div class="checkered-flag"></div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <header class="profile-header racing-header">
+      <div class="profile-content">
+        <div class="header-decorations">
+          <div class="racing-line left"></div>
+          <img src="karting.png" alt="Racing Kart Circuit" class="racing-image">
+          <div class="racing-line right"></div>
+        </div>
+        <div class="profile-info">
+          <h1>RACING KART</h1>
+          <p class="racing-tagline">PUSH YOUR LIMITS ON THE TRACK</p>
+        </div>
+      </div>
+    </header>
+
+    <section id="packages" class="racing-packages">
+      <div class="package-grid">
+        <div class="package-card">
+          <h3>SPRINT</h3>
+          <p>10 minutes</p>
+          <div class="package-price">25€</div>
+        </div>
+        <div class="package-card">
+          <h3>GRAND PRIX</h3>
+          <p>20 minutes</p>
+          <div class="package-price">45€</div>
+        </div>
+        <div class="package-card">
+          <h3>ENDURANCE</h3>
+          <p>30 minutes</p>
+          <div class="package-price">65€</div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="reservation" class="reservation-section">
+      <div class="reservation-container racing-container">
+        <h2>BOOK YOUR SESSION</h2>
+        <form class="contact-form racing-form" id="reservationForm">
+          <div class="form-group">
+            <label for="name">DRIVER NAME</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">PHONE</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-columns">
+            <div class="form-group">
+              <label for="date">DATE</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+              <label for="time">TIME</label>
+              <input type="time" id="time" name="time" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="session">RACE TYPE</label>
+            <select id="session" name="session" required>
+              <option value="">Select</option>
+              <option value="sprint">SPRINT - 10min</option>
+              <option value="grand-prix">GRAND PRIX - 20min</option>
+              <option value="endurance">ENDURANCE - 30min</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pilots">NUMBER OF DRIVERS</label>
+            <select id="pilots" name="pilots" required>
+              <option value="">Select</option>
+              <option value="1">1 driver</option>
+              <option value="2">2 drivers</option>
+              <option value="3">3 drivers</option>
+              <option value="4">4 drivers</option>
+            </select>
+          </div>
+          <button type="submit" class="submit-button racing-button">
+            START THE RACE!
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer racing-footer">
+    <div class="racing-stripe"></div>
+    <a href="file:///Users/shayacoca/portfolio%20-%20%20shay/portfolio/Page-index.html#about" class="back-button">
+      BACK TO PITS
+    </a>
+  </footer>
+
+  <script src="karting.js"></script>
+</body>
+
+</html>

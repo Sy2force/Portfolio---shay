@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tennis Club - Reservation</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="tennis.css">
+</head>
+
+<body>
+  <div class="tennis-bg"></div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="tennis-ball left"></div>
+      <a href="#" class="nav-link">TENNIS CLUB ELITE</a>
+      <div class="tennis-ball right"></div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <header class="profile-header tennis-header">
+      <div class="profile-content">
+        <div class="header-decorations">
+          <div class="racket-effect left"></div>
+          <img src="tennis.png" alt="Tennis Club" class="tennis-image">
+          <div class="racket-effect right"></div>
+        </div>
+        <div class="profile-info">
+          <h1>TENNIS CLUB ELITE</h1>
+          <h2>Grand Slam Horizon</h2>
+          <p class="club-info">Open 7 days a week from 7 AM to 11 PM</p>
+          <p class="club-location">Horizon Bay, a Floating Complex off the
+            Maldives</p>
+        </div>
+      </div>
+    </header>
+
+    <section id="courts" class="courts-section">
+      <h2>OUR COURTS</h2>
+      <div class="courts-grid">
+        <div class="court-card">
+          <h3>CLAY</h3>
+          <ul>
+            <li>4 indoor courts</li>
+            <li>6 outdoor courts</li>
+            <li>LED Lighting</li>
+          </ul>
+        </div>
+        <div class="court-card">
+          <h3>GRASS</h3>
+          <ul>
+            <li>2 outdoor courts</li>
+            <li>Daily maintenance</li>
+            <li>Premium surface</li>
+          </ul>
+        </div>
+        <div class="court-card">
+          <h3>HARD</h3>
+          <ul>
+            <li>3 indoor courts</li>
+            <li>4 outdoor courts</li>
+            <li>Olympic surface</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="prices" class="price-section">
+      <div class="price-grid">
+        <div class="price-card">
+          <h3>OFF-PEAK HOURS</h3>
+          <div class="price-amount">25€</div>
+          <p>Monday to Friday (9 AM-5 PM)</p>
+        </div>
+        <div class="price-card">
+          <h3>PEAK HOURS</h3>
+          <div class="price-amount">35€</div>
+          <p>Evenings and Weekends</p>
+        </div>
+        <div class="price-card">
+          <h3>10-HOUR PACKAGE</h3>
+          <div class="price-amount">220€</div>
+          <p>Valid for 3 months</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservation" class="reservation-section">
+      <div class="reservation-container">
+        <h2>BOOK YOUR COURT</h2>
+        <form class="contact-form" id="reservationForm">
+          <div class="form-group">
+            <label for="name">FULL NAME</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">PHONE</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="court-type">COURT TYPE</label>
+            <select id="court-type" name="court-type" required>
+              <option value="">Select</option>
+              <option value="clay">Clay</option>
+              <option value="grass">Grass</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="date">DATE</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="form-groups-inline">
+            <div class="form-group">
+              <label for="time">TIME</label>
+              <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+              <label for="duration">DURATION</label>
+              <select id="duration" name="duration" required>
+                <option value="1">1 hour</option>
+                <option value="1.5">1.5 hours</option>
+                <option value="2">2 hours</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="equipment">OPTIONS</label>
+            <select id="equipment" name="equipment">
+              <option value="none">No Equipment</option>
+              <option value="racket">Racket Rental (+5€)</option>
+              <option value="full">Full Package (+10€)</option>
+            </select>
+          </div>
+          <div id="total-price" class="total-price">
+            Total: 0€
+          </div>
+          <button type="submit" class="submit-button">
+            CONFIRM RESERVATION
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="tennis-ball"></div>
+    <a href="file:///Users/shayacoca/portfolio%20-%20%20shay/portfolio/Page-index.html#about" class="back-button">
+      BACK
+    </a>
+  </footer>
+
+  <script src="tennis.js"></script>
+</body>
+
+</html>
