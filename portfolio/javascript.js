@@ -15,3 +15,4 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     alert('Merci pour votre message !');
     this.reset(); // Clear the form
 });
+

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect 4 Neon Arcade</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="stars"></div>
+
+  <div class="game-wrapper">
+    <!-- Header section -->
+    <header class="main-header">
+      <h1 class="neon-title">CONNECT <span class="neon-text-4">4</span> <span
+          class="neon-subtitle">ARCADE</span></h1>
+    </header>
+
+    <div class="content-container">
+      <!-- Game section -->
+      <div class="game-section">
+        <div class="neon-container">
+          <div class="game-info">
+            <div class="player active">
+              <div class="player-label neon-text-red">PLAYER 1</div>
+              <div class="player-token token-red"></div>
+              <div class="player-score">SCORE: <span id="score-player1"
+                  class="player-score-value neon-text-red">0</span></div>
+            </div>
+
+            <div class="timer-container">
+              <div class="timer-label">TIME</div>
+              <div id="timer" class="neon-timer">10</div>
+            </div>
+
+            <div class="player">
+              <div class="player-label neon-text-yellow">PLAYER 2</div>
+              <div class="player-token token-yellow"></div>
+              <div class="player-score">SCORE: <span id="score-player2"
+                  class="player-score-value neon-text-yellow">0</span></div>
+            </div>
+          </div>
+
+          <div id="column-indicators" class="column-indicators"></div>
+          <div id="game-board" class="game-board"></div>
+          <div id="game-message" class="game-message"></div>
+
+          <div class="controls">
+            <button id="new-game-btn" class="neon-button neon-button-blue">NEW
+              GAME</button>
+            <button id="reset-score-btn"
+              class="neon-button neon-button-red">RESET SCORES</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info section -->
+      <div class="info-section">
+        <!-- How to play -->
+        <div class="how-to-play neon-container">
+          <h2 class="section-title neon-text-blue">HOW TO PLAY</h2>
+          <div class="controls-info">
+            <div class="control-item">
+              <div class="control-icon mouse-icon"></div>
+              <div class="control-desc">Click on a column to drop your token
+              </div>
+            </div>
+            <div class="control-item">
+              <div class="control-icon key-icon">1-7</div>
+              <div class="control-desc">Press number keys (1-7) to drop in
+                column</div>
+            </div>
+            <div class="control-item">
+              <div class="control-icon timer-icon"></div>
+              <div class="control-desc">Make your move before time runs out!
+              </div>
+            </div>
+            <div class="control-item">
+              <div class="control-icon win-icon">4</div>
+              <div class="control-desc">Connect 4 tokens to win</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="leaderboard neon-container">
+          <h2 class="section-title neon-text-purple">LEADERBOARD</h2>
+          <div class="score-table">
+            <div class="score-header">
+              <div class="score-rank">#</div>
+              <div class="score-player-name">PLAYER</div>
+              <div class="score-value">WINS</div>
+            </div>
+
+            <div class="score-row">
+              <div class="score-rank">1</div>
+              <div class="score-player-name neon-text-red">PLAYER 1</div>
+              <div id="history-player1" class="score-value neon-text-red">0
+              </div>
+            </div>
+
+            <div class="score-row">
+              <div class="score-rank">2</div>
+              <div class="score-player-name neon-text-yellow">PLAYER 2</div>
+              <div id="history-player2" class="score-value neon-text-yellow">0
+              </div>
+            </div>
+
+            <div class="score-row" id="current-session">
+              <div class="score-rank"></div>
+              <div class="score-player-name neon-text-blue">CURRENT SESSION
+              </div>
+              <div id="session-games" class="score-value neon-text-blue">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game stats -->
+        <div class="game-stats neon-container">
+          <h2 class="section-title neon-text-cyan">GAME STATS</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-label">TOTAL GAMES</div>
+              <div id="total-games" class="stat-value neon-text-cyan">0</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">AVERAGE MOVES</div>
+              <div id="avg-moves" class="stat-value neon-text-cyan">0</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">BEST TIME</div>
+              <div id="best-time" class="stat-value neon-text-cyan">--</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">DRAWS</div>
+              <div id="total-draws" class="stat-value neon-text-cyan">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer with keyboard shortcuts -->
+    <footer class="game-footer">
+      <div class="shortcuts">
+        <div class="shortcut-item">
+          <span class="key">N</span> New Game
+        </div>
+        <div class="shortcut-item">
+          <span class="key">R</span> Reset Score
+        </div>
+    </footer>
+
+    <footer class="page-footer">
+      <a href="../portfolio/Page-index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to previous page
+      </a>
+    </footer>
+  </div>
+
+  <script src="java.js"></script>
+</body>
+
+</html>

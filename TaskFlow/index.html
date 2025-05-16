@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="theme-default">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-check-circle"></i>
+                <span>TaskFlow</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-view="tasks">
+                        <a href="#"><i class="fas fa-tasks"></i> My Tasks</a>
+                    </li>
+                    <li data-view="calendar">
+                        <a href="#"><i class="far fa-calendar-alt"></i>
+                            Calendar</a>
+                    </li>
+                    <li data-view="settings">
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="date-bubble">
+                <span class="day-number" id="day-number">03</span>
+                <div class="date-info">
+                    <span class="month" id="month">May</span>
+                    <span class="year" id="year">2025</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content - Tasks View -->
+        <main class="main-content" id="tasks-view">
+            <header class="main-header">
+                <h1>My Tasks</h1>
+                <button class="add-task-btn" id="add-task-btn">
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+            </header>
+
+            <div class="task-columns">
+                <!-- Today Column -->
+                <div class="task-column" id="today-column">
+                    <div class="column-header">
+                        <h2>Today</h2>
+                        <span class="task-count" id="today-count">0</span>
+                    </div>
+                    <div class="tasks-container" id="today-tasks">
+                    </div>
+                </div>
+
+                <!-- Tomorrow Column -->
+                <div class="task-column" id="tomorrow-column">
+                    <div class="column-header">
+                        <h2>Tomorrow</h2>
+                        <span class="task-count" id="tomorrow-count">0</span>
+                    </div>
+                    <div class="tasks-container" id="tomorrow-tasks">
+                    </div>
+                </div>
+
+                <!-- Upcoming Column -->
+                <div class="task-column" id="upcoming-column">
+                    <div class="column-header">
+                        <h2>Upcoming</h2>
+                        <span class="task-count" id="upcoming-count">0</span>
+                    </div>
+                    <div class="tasks-container" id="upcoming-tasks">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Calendar View -->
+        <main class="main-content hidden" id="calendar-view">
+            <header class="main-header">
+                <h1>Calendar</h1>
+                <button class="add-task-btn" id="add-task-btn-calendar">
+                    <i class="fas fa-plus"></i> Add Task
+                </button>
+            </header>
+
+            <div class="calendar-wrapper">
+                <div class="calendar-nav">
+                    <button id="prev-month" class="calendar-nav-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h2 id="calendar-month-year">May 2025</h2>
+                    <button id="next-month" class="calendar-nav-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="calendar">
+                    <div class="weekdays">
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                        <div>Sun</div>
+                    </div>
+                    <div class="days" id="calendar-days">
+                    </div>
+                </div>
+
+                <div class="daily-task-list">
+                    <h3 id="selected-date">Tasks: May 3, 2025</h3>
+                    <div id="calendar-tasks-list">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Settings View -->
+        <main class="main-content hidden" id="settings-view">
+            <header class="main-header">
+                <h1>Settings</h1>
+            </header>
+
+            <div class="settings-container">
+                <div class="settings-section">
+                    <h2>Theme</h2>
+                    <div class="theme-options">
+                        <div class="theme-option active" data-theme="default">
+                            <div class="theme-preview default-theme"></div>
+                            <span>Default</span>
+                        </div>
+                        <div class="theme-option" data-theme="dark">
+                            <div class="theme-preview dark-theme"></div>
+                            <span>Dark</span>
+                        </div>
+                        <div class="theme-option" data-theme="blue">
+                            <div class="theme-preview blue-theme"></div>
+                            <span>Blue</span>
+                        </div>
+                        <div class="theme-option" data-theme="purple">
+                            <div class="theme-preview purple-theme"></div>
+                            <span>Purple</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Notifications</h2>
+                    <div class="setting-toggle">
+                        <span>Enable Desktop Notifications</span>
+                        <label class="switch">
+                            <input type="checkbox" id="notification-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>About</h2>
+                    <p>TaskFlow v1.0.0</p>
+                    <p>A simple and efficient task management application.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Task</h2>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="task-title">Task Title</label>
+                    <input type="text" id="task-title"
+                        placeholder="Enter task title">
+                </div>
+                <div class="form-group">
+                    <label for="task-date">Due Date</label>
+                    <input type="date" id="task-date">
+                </div>
+                <div class="form-group">
+                    <label for="task-priority">Priority</label>
+                    <select id="task-priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" id="cancel-btn">Cancel</button>
+                <button class="save-btn" id="save-task-btn">Save Task</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 40px;">
+        <button onclick="history.back()" class="btn secondary">
+            ⬅️ Back to previous page
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

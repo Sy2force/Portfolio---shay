@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body> 
+    <!-- Main container -->
+    <div class="container"> <!-- Wrapper -->
+        <header> <!-- Header -->
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-file-invoice"></i>
+                    <h1>Invoice<span>Generator</span></h1>
+                </div>
+
+                <div class="action-buttons"> <!-- Controls -->
+                    <button id="newInvoiceBtn" class="btn primary"
+                        title="New invoice">
+                        <i class="fas fa-plus"></i> New
+                    </button>
+                    <div class="dropdown">
+                        <button class="btn secondary dropdown-toggle">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <button id="saveInvoiceBtn">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                            <button id="loadInvoiceBtn">
+                                <i class="fas fa-folder-open"></i> Load
+                            </button>
+                            <button id="printInvoiceBtn">
+                                <i class="fas fa-print"></i> Print
+                            </button>
+                            <button id="exportPdfBtn">
+                                <i class="fas fa-file-pdf"></i> Export PDF
+                            </button>
+                            <button id="darkModeToggle">
+                                <i class="fas fa-moon"></i> Dark Mode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main menu with tabs -->
+            <div class="tabs"> <!-- Navigation -->
+                <button class="tab-btn active" data-tab="facture">
+                    <i class="fas fa-receipt"></i> <span>Invoice</span>
+                </button>
+                <button class="tab-btn" data-tab="client">
+                    <i class="fas fa-user"></i> <span>Client</span>
+                </button>
+                <button class="tab-btn" data-tab="entreprise">
+                    <i class="fas fa-building"></i> <span>Company</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Invoice section -->
+        <section id="facture-section" class="section active"> <!-- Invoice -->
+            <div class="section-header">
+                <div class="facture-info">
+                    <div class="form-row">
+                        <div class="form-group floating">
+                            <input type="text" id="invoiceNumber"
+                                placeholder=" ">
+                            <label for="invoiceNumber">Invoice No.</label>
+                        </div>
+                        <div class="form-group floating">
+                            <input type="date" id="invoiceDate" placeholder=" ">
+                            <label for="invoiceDate">Date</label>
+                        </div>
+                        <div class="form-group floating">
+                            <input type="date" id="dueDate" placeholder=" ">
+                            <label for="dueDate">Due Date</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product form -->
+            <div class="add-product-form"> <!-- Products -->
+                <div class="form-group floating">
+                    <input type="text" id="productName" placeholder=" ">
+                    <label for="productName">Product/Service</label>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group floating">
+                        <input type="number" id="productQuantity" min="1"
+                            value="1" placeholder=" ">
+                        <label for="productQuantity">Quantity</label>
+                    </div>
+                    <div class="form-group floating">
+                        <input type="number" id="productPrice" min="0"
+                            step="0.01" value="0" placeholder=" ">
+                        <label for="productPrice">Price (€)</label>
+                    </div>
+                    <div class="form-group floating">
+                        <input type="number" id="productTax" min="0" max="100"
+                            step="0.1" value="20" placeholder=" ">
+                        <label for="productTax">VAT (%)</label>
+                    </div>
+                    <div class="form-group floating">
+                        <input type="number" id="productDiscount" min="0"
+                            max="100" step="0.1" value="0" placeholder=" ">
+                        <label for="productDiscount">Discount (%)</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group floating">
+                        <textarea id="productDescription"
+                            placeholder=" "></textarea>
+                        <label for="productDescription">Description</label>
+                    </div>
+                </div>
+
+                <button id="addProductBtn" class="btn primary">
+                    <i class="fas fa-plus"></i> Add to invoice
+                </button>
+            </div>
+
+            <!-- Product table -->
+            <div class="invoice"> <!-- Summary -->
+                <div class="invoice-header">
+                    <h3>Invoice Details</h3>
+                    <div class="search-box">
+                        <input type="text" id="productSearch"
+                            placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="invoiceTable">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>VAT</th>
+                                <th>Discount</th>
+                                <th>Net Amount</th>
+                                <th>Gross Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoiceBody">
+                            <!-- Product lines -->
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" class="total-label">Net Total
+                                </td>
+                                <td id="totalAmountHT">0.00 €</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="tax-summary">
+                                <td colspan="6" class="total-label">VAT</td>
+                                <td id="totalTax">0.00 €</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="grand-total">
+                                <td colspan="6" class="total-label">Gross Total
+                                </td>
+                                <td id="totalAmountTTC">0.00 €</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client section -->
+        <section id="client-section" class="section"> <!-- Clients -->
+            <div class="client-selection">
+                <div class="client-list">
+                    <h3>Saved Clients</h3>
+                    <div id="clientsList" class="client-cards">
+                        <!-- Client list -->
+                    </div>
+                </div>
+
+                <div class="client-quick-actions">
+                    <button id="newClientBtn" class="btn outlined">
+                        <i class="fas fa-user-plus"></i> New client
+                    </button>
+                </div>
+            </div>
+
+            <div class="client-form"> <!-- Details -->
+                <h3>Client Information</h3>
+                <div class="form-row">
+                    <div class="form-group floating">
+                        <input type="text" id="clientName" placeholder=" ">
+                        <label for="clientName">Name / Business Name</label>
+                    </div>
+                    <div class="form-group floating">
+                        <input type="text" id="clientContact" placeholder=" ">
+                        <label for="clientContact">Contact</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group floating">
+                        <textarea id="clientAddress" placeholder=" "></textarea>
+                        <label for="clientAddress">Address</label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group floating">
+                        <input type="email" id="clientEmail" placeholder=" ">
+                        <label for="clientEmail">Email</label>
+                    </div>
+                    <div class="form-group floating">
+                        <input type="tel" id="clientPhone" placeholder=" ">
+                        <label for="clientPhone">Phone</label>
+                    </div>
+                    <div class="form-group floating">
+                        <input type="text" id="clientVat" placeholder=" ">
+                        <label for="clientVat">VAT No.</label>
+                    </div>
+                </div>
+
+                <div class="client-actions">
+                    <button id="saveClientBtn" class="btn primary">
+                        <i class="fas fa-save"></i> Save client
+                    </button>
+                    <button id="clearClientBtn" class="btn outlined">
+                        <i class="fas fa-trash"></i> Clear form
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company section -->
+        <section id="entreprise-section" class="section"> <!-- Company -->
+            <h3>Your Company Information</h3>
+            <div class="form-row">
+                <div class="form-group floating">
+                    <input type="text" id="companyName" placeholder=" ">
+                    <label for="companyName">Name / Business Name</label>
+                </div>
+                <div class="form-group">
+                    <label for="companyLogo">Company Logo</label>
+                    <div class="file-input">
+                        <input type="file" id="companyLogo" accept="image/*">
+                        <label for="companyLogo" class="file-label">
+                            <i class="fas fa-cloud-upload-alt"></i> Choose a
+                            file
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group floating">
+                    <textarea id="companyAddress" placeholder=" "></textarea>
+                    <label for="companyAddress">Address</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group floating">
+                    <input type="email" id="companyEmail" placeholder=" ">
+                    <label for="companyEmail">Email</label>
+                </div>
+                <div class="form-group floating">
+                    <input type="tel" id="companyPhone" placeholder=" ">
+                    <label for="companyPhone">Phone</label>
+                </div>
+                <div class="form-group floating">
+                    <input type="text" id="companyVat" placeholder=" ">
+                    <label for="companyVat">VAT No.</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group floating">
+                    <input type="text" id="companySiren" placeholder=" ">
+                    <label for="companySiren">Business Registration No.</label>
+                </div>
+                <div class="form-group floating">
+                    <input type="url" id="companyWeb" placeholder=" ">
+                    <label for="companyWeb">Website</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group floating">
+                    <textarea id="companyBankDetails"
+                        placeholder=" "></textarea>
+                    <label for="companyBankDetails">Bank Details</label>
+                </div>
+                <div class="form-group floating">
+                    <textarea id="companyNotes" placeholder=" "></textarea>
+                    <label for="companyNotes">Legal Notes</label>
+                </div>
+            </div>
+
+            <button id="saveCompanyBtn" class="btn primary">
+                <i class="fas fa-save"></i> Save information
+            </button>
+        </section>
+    </div>
+
+    <!-- Saved Invoices Modal -->
+    <div id="invoicesModal" class="modal"> <!-- Modal -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-invoice"></i> Saved Invoices
+                </h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="search-box">
+                    <input type="text" id="invoiceSearch"
+                        placeholder="Search for an invoice...">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <div class="folders-view">
+                    <div class="folders-sidebar">
+                        <div class="folder active">
+                            <i class="fas fa-folder"></i> All invoices
+                        </div>
+                        <div class="folder">
+                            <i class="fas fa-folder"></i> This month
+                        </div>
+                        <div class="folder">
+                            <i class="fas fa-folder"></i> Pending
+                        </div>
+                        <div class="folder">
+                            <i class="fas fa-folder"></i> Paid
+                        </div>
+                    </div>
+
+                    <div class="documents-list" id="savedInvoicesList">
+                        <!-- List of saved invoices -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer"> 
+        <a href="../project 1/option1.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to previous page
+        </a>
+    </footer>
+
+    <script src="java.js"></script> 
+</body>
+
+</html>

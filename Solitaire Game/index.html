@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solitaire Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="game-container">
+            <div class="game-header">
+                <div class="game-stats">
+                    <span id="moves">Moves: 0</span>
+                    <span id="time">Time: 10:00</span>
+                </div>
+                <button id="new-game-btn">New Game</button>
+            </div>
+
+            <div class="game-board">
+                <!-- Deck and waste pile -->
+                <div class="top-row">
+                    <div id="deck" class="card-pile"></div>
+                    <div id="waste" class="card-pile"></div>
+                    <div class="spacer"></div>
+                    <div id="foundation-1" class="card-pile foundation"></div>
+                    <div id="foundation-2" class="card-pile foundation"></div>
+                    <div id="foundation-3" class="card-pile foundation"></div>
+                    <div id="foundation-4" class="card-pile foundation"></div>
+                </div>
+
+                <!-- Tableau (7 columns) -->
+                <div class="tableau-row">
+                    <div id="tableau-1" class="card-pile tableau"></div>
+                    <div id="tableau-2" class="card-pile tableau"></div>
+                    <div id="tableau-3" class="card-pile tableau"></div>
+                    <div id="tableau-4" class="card-pile tableau"></div>
+                    <div id="tableau-5" class="card-pile tableau"></div>
+                    <div id="tableau-6" class="card-pile tableau"></div>
+                    <div id="tableau-7" class="card-pile tableau"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="help-container">
+            <h2>Solitaire Game Help</h2>
+
+            <div class="help-section">
+                <h3>How to Play</h3>
+                <p>The goal of solitaire is to move all cards to the foundations
+                    (top right),
+                    sorted by suit in ascending order (from Ace to King).</p>
+            </div>
+
+            <div class="help-section">
+                <h3>How to Move Cards</h3>
+                <ol>
+                    <li><strong>Select a card</strong> by clicking on it</li>
+                    <li><strong>Move it</strong> by clicking on the destination
+                    </li>
+                </ol>
+            </div>
+
+            <div class="help-section">
+                <h3>Movement Rules</h3>
+                <table class="rules-table">
+                    <tr>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Rules</th>
+                    </tr>
+                    <tr>
+                        <td>Deck</td>
+                        <td>Waste</td>
+                        <td>Click on the deck to flip a card</td>
+                    </tr>
+                    <tr>
+                        <td>Waste</td>
+                        <td>Foundation</td>
+                        <td>Ace, then ascending order of the same suit</td>
+                    </tr>
+                    <tr>
+                        <td>Waste</td>
+                        <td>Tableau</td>
+                        <td>Descending order, alternating colors</td>
+                    </tr>
+                    <tr>
+                        <td>Tableau</td>
+                        <td>Foundation</td>
+                        <td>Ace, then ascending order of the same suit</td>
+                    </tr>
+                    <tr>
+                        <td>Tableau</td>
+                        <td>Tableau</td>
+                        <td>Descending order, alternating colors</td>
+                    </tr>
+                    <tr>
+                        <td>Foundation</td>
+                        <td>Tableau</td>
+                        <td>Descending order, alternating colors</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="help-section">
+                <h3>Tips</h3>
+                <ul>
+                    <li>Try to free Kings to place them on empty columns</li>
+                    <li>Uncover face-down cards as soon as possible</li>
+                    <li>Don't rush to place cards on foundations if you need
+                        them elsewhere</li>
+                </ul>
+            </div>
+
+            <div class="help-section">
+                <h3>Beginner Shortcuts</h3>
+                <table class="rules-table">
+                    <tr>
+                        <th>Situation</th>
+                        <th>Recommended Action</th>
+                    </tr>
+                    <tr>
+                        <td>Available Ace</td>
+                        <td>Place it on a foundation</td>
+                    </tr>
+                    <tr>
+                        <td>Face-down card</td>
+                        <td>Priority: uncover this card</td>
+                    </tr>
+                    <tr>
+                        <td>Available King</td>
+                        <td>Place it on an empty column</td>
+                    </tr>
+                    <tr>
+                        <td>Empty deck</td>
+                        <td>Click on it to recycle the waste pile</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Victory message -->
+    <div id="win-message" class="hidden">
+        <div class="win-content">
+            <h2>Congratulations!</h2>
+            <p>You've completed the game in:</p>
+            <p><strong id="final-moves">0</strong> moves</p>
+            <p><strong id="final-time">00:00</strong> time</p>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 40px;">
+        <button onclick="history.back()" class="btn secondary">
+            ⬅️ Back to previous page
+        </button>
+    </div>
+
+    <script src="java.js"></script>
+</body>
+
+</html>

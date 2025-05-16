@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Memory Game</h1>
+  </header>
+
+  <div class="game-controls">
+    <div class="control-group">
+      <label for="player-count">Number of players:</label>
+      <select id="player-count">
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="difficulty">Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+
+    <button id="start-game">New Game</button>
+  </div>
+
+  <div class="game-info">
+    <div id="current-player" class="info-box">Player 1's turn</div>
+    <div id="game-message" class="info-box">Click "New Game" to start</div>
+  </div>
+
+  <div id="player-scores" class="player-scores-container"></div>
+
+  <div id="game-container" class="game-container"></div>
+
+  <div style="text-align:center; margin-top: 40px;">
+    <button onclick="history.back()" class="btn secondary">
+      Back to previous page
+    </button>
+  </div>
+
+  <script src="java.js"></script>
+</body>
+
+</html>

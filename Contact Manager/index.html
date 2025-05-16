@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <!-- Fixed top banner -->
+  <div class="banner-container">
+    <div class="live-rates-banner">
+      <div class="ticker-scroll" id="tickerScroll">
+        <span class="ticker-item up"><i class="fas fa-calendar-check"></i>
+          Recent appointments: <span>3 this week</span></span>
+        <span class="ticker-item"><i class="fas fa-birthday-cake"></i> Upcoming
+          birthdays: <span>Marie (05/25)</span></span>
+        <span class="ticker-item up"><i class="fas fa-user-plus"></i> New
+          contacts: <span>4 this month</span></span>
+        <span class="ticker-item"><i class="fas fa-users"></i> Total contacts:
+          <span>32</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <div class="logo">
+          <i class="fas fa-address-book"></i>
+          <h1>Contact<span>Manager</span></h1>
+        </div>
+
+        <div class="actions">
+          <button id="darkModeToggle" class="mode-toggle" title="Change theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button id="addContactBtn" class="primary-button">
+            <i class="fas fa-user-plus"></i> New Contact
+          </button>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="contacts">
+          <i class="fas fa-users"></i>
+          <span>Contacts</span>
+        </button>
+        <button class="tab-btn" data-tab="groupes">
+          <i class="fas fa-layer-group"></i>
+          <span>Groups</span>
+        </button>
+        <button class="tab-btn" data-tab="agenda">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Calendar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Contacts Section -->
+    <section id="contacts-section" class="section active">
+      <div class="section-header">
+        <div class="search-box">
+          <input type="text" id="contactSearch"
+            placeholder="Search for a contact...">
+          <i class="fas fa-search"></i>
+        </div>
+
+        <div class="filters">
+          <select id="filterGroup" class="filter-select">
+            <option value="all">All groups</option>
+            <option value="famille">Family</option>
+            <option value="amis">Friends</option>
+            <option value="travail">Work</option>
+            <option value="entreprise">Companies</option>
+          </select>
+
+          <select id="sortContacts" class="filter-select">
+            <option value="name">Name (A-Z)</option>
+            <option value="name-desc">Name (Z-A)</option>
+            <option value="recent">Most recent</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="contacts-grid" id="contactsList">
+        <!-- Contacts will be loaded here dynamically -->
+      </div>
+
+      <div class="empty-state" id="emptyContacts">
+        <i class="fas fa-users empty-icon"></i>
+        <h3>No contacts found</h3>
+        <p>Start by adding a new contact or modify your filters</p>
+        <button id="emptyAddContactBtn" class="primary-button">
+          <i class="fas fa-user-plus"></i> Add a contact
+        </button>
+      </div>
+    </section>
+
+    <!-- Groups Section -->
+    <section id="groupes-section" class="section">
+      <div class="section-header">
+        <h2>Group Management</h2>
+      </div>
+
+      <div class="add-group-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="groupName">Group name</label>
+            <input type="text" id="groupName"
+              placeholder="Ex: Family, Colleagues...">
+          </div>
+
+          <div class="form-group">
+            <label for="groupColor">Color</label>
+            <input type="color" id="groupColor" value="#4361ee">
+          </div>
+        </div>
+
+        <div class="group-presets">
+          <button class="group-preset-btn" data-name="Family"
+            data-color="#F72585">
+            <span class="group-preset-color"
+              style="background-color: #F72585"></span> Family
+          </button>
+          <button class="group-preset-btn" data-name="Friends"
+            data-color="#4CC9F0">
+            <span class="group-preset-color"
+              style="background-color: #4CC9F0"></span> Friends
+          </button>
+          <button class="group-preset-btn" data-name="Work"
+            data-color="#4361EE">
+            <span class="group-preset-color"
+              style="background-color: #4361EE"></span> Work
+          </button>
+          <button class="group-preset-btn" data-name="Company"
+            data-color="#7209B7">
+            <span class="group-preset-color"
+              style="background-color: #7209B7"></span> Company
+          </button>
+        </div>
+
+        <button id="addGroupBtn" class="primary-button">
+          <i class="fas fa-plus"></i> Add this group
+        </button>
+      </div>
+
+      <h3>Existing groups</h3>
+      <div class="groups-list" id="groupsList">
+        <!-- Groups will be loaded here dynamically -->
+      </div>
+
+      <div class="empty-state" id="emptyGroups">
+        <i class="fas fa-layer-group empty-icon"></i>
+        <h3>No groups</h3>
+        <p>Create groups to better organize your contacts</p>
+      </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="agenda-section" class="section">
+      <div class="section-header">
+        <h2>Appointment Calendar</h2>
+      </div>
+
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <button id="prevMonth" class="calendar-nav-btn"><i
+              class="fas fa-chevron-left"></i></button>
+          <h3 id="currentMonth">May 2023</h3>
+          <button id="nextMonth" class="calendar-nav-btn"><i
+              class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="weekdays">
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+          <div>Sun</div>
+        </div>
+
+        <div class="calendar-days" id="calendarDays">
+          <!-- Days will be generated here dynamically -->
+        </div>
+      </div>
+
+      <div class="upcoming-events">
+        <h3>Upcoming appointments</h3>
+        <div id="eventsList">
+          <!-- Events will be loaded here dynamically -->
+        </div>
+
+        <button id="addEventBtn" class="primary-button">
+          <i class="fas fa-plus"></i> Add an appointment
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modals -->
+  <!-- Contact Form Modal -->
+  <div id="contactFormModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="formTitle">Add a contact</h2>
+        <span class="close">&times;</span>
+      </div>
+
+      <form id="contactForm">
+        <input type="hidden" id="contactId">
+
+        <div class="contact-avatar">
+          <div id="avatarPreview" class="avatar-preview">
+            <i class="fas fa-user"></i>
+          </div>
+
+          <div class="avatar-controls">
+            <div class="file-input">
+              <input type="file" id="avatarUpload" accept="image/*">
+              <label for="avatarUpload">Choose a photo</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-type-toggle">
+          <label class="type-option">
+            <input type="radio" name="contactType" value="personal" checked>
+            <span class="type-label"><i class="fas fa-user"></i> Person</span>
+          </label>
+          <label class="type-option">
+            <input type="radio" name="contactType" value="company">
+            <span class="type-label"><i class="fas fa-building"></i>
+              Company</span>
+          </label>
+        </div>
+
+        <div id="personalFields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First name <span
+                  class="required">*</span></label>
+              <input type="text" id="firstName" required>
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Last name <span
+                  class="required">*</span></label>
+              <input type="text" id="lastName" required>
+            </div>
+          </div>
+        </div>
+
+        <div id="companyFields" style="display: none;">
+          <div class="form-group">
+            <label for="companyName">Company name <span
+                class="required">*</span></label>
+            <input type="text" id="companyName">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="birthday">Birth date</label>
+            <input type="date" id="birthday">
+          </div>
+
+          <div class="form-group">
+            <label for="group">Group</label>
+            <select id="group">
+              <option value="">No group</option>
+              <!-- Groups will be loaded here dynamically -->
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Notes</label>
+          <textarea id="notes"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="cancelBtn" class="secondary-button">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button type="submit" id="saveContactBtn" class="primary-button">
+            <i class="fas fa-save"></i> <span>Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Event Modal -->
+  <div id="eventFormModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add an appointment</h2>
+        <span class="close">&times;</span>
+      </div>
+
+      <form id="eventForm">
+        <input type="hidden" id="eventId">
+
+        <div class="form-group">
+          <label for="eventTitle">Title <span class="required">*</span></label>
+          <input type="text" id="eventTitle" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="eventDate">Date <span class="required">*</span></label>
+            <input type="date" id="eventDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="eventTime">Time</label>
+            <input type="time" id="eventTime">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="eventContact">Contact</label>
+          <select id="eventContact">
+            <option value="">Select a contact</option>
+            <!-- Contacts will be loaded here dynamically -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="eventLocation">Location</label>
+          <input type="text" id="eventLocation">
+        </div>
+
+        <div class="form-group">
+          <label for="eventDescription">Description</label>
+          <textarea id="eventDescription"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="cancelEventBtn" class="secondary-button">
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button type="submit" class="primary-button">
+            <i class="fas fa-save"></i> Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmModal" class="modal">
+    <div class="modal-content confirm-modal">
+      <span class="close">&times;</span>
+      <h3 id="confirmTitle">Confirmation</h3>
+      <p id="confirmMessage">Are you sure you want to perform this action?
+      </p>
+      <div class="modal-actions">
+        <button id="confirmNoBtn" class="secondary-button">No</button>
+        <button id="confirmYesBtn" class="warning-button">Yes,
+          delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Details -->
+  <div id="viewContactModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Contact details</h2>
+        <span class="close">&times;</span>
+      </div>
+
+      <div id="contactDetail">
+        <!-- Contact details will be loaded here dynamically -->
+      </div>
+
+      <div class="modal-actions">
+        <button id="editContactBtn" class="secondary-button">
+          <i class="fas fa-edit"></i> Edit
+        </button>
+        <button id="deleteContactBtn" class="warning-button">
+          <i class="fas fa-trash"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Bar -->
+  <div id="contactActionBar" class="action-bar">
+    <div class="selected-info">
+      <span id="selectedCount">0</span> contact(s) selected
+    </div>
+
+    <div class="action-group">
+      <button id="changeGroupBtn" class="secondary-button">
+        <i class="fas fa-layer-group"></i> Change group
+      </button>
+      <button id="deleteSelectedBtn" class="warning-button">
+        <i class="fas fa-trash"></i> Delete
+      </button>
+      <button id="cancelSelectionBtn" class="light-button">
+        <i class="fas fa-times"></i> Cancel
+      </button>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <a href="../portfolio/Page-index.html" class="back-button">
+      <i class="fas fa-arrow-left"></i> Back to previous page
+    </a>
+  </footer>
+
+  <script src="javascript.js"></script>
+</body>
+
+</html>

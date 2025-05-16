@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Modern Snake game with different difficulty levels and customization">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Montserrat:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body> 
+    <div class="game-container"> 
+        <div class="theme-toggle" id="theme-toggle" aria-label="Change theme">
+            <i class="fas fa-moon"></i>
+        </div>
+
+        <header> <!-- Branding -->
+            <h1 class="game-title">SNAKE<span>MASTER</span></h1>
+            <p class="game-subtitle">SNAKE</p>
+        </header>
+
+        <div class="score-panel"> <!-- Scoreboard -->
+            <div class="score-container">
+                <div class="score" id="score">
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>0</span>
+                </div>
+                <div class="high-score" id="high-score">
+                    <i class="fas fa-trophy"></i>
+                    <span>0</span>
+                </div>
+            </div>
+
+            <div class="game-info"> <!-- Status -->
+                <div class="level-indicator">Level: <span
+                        id="level-display">Medium</span></div>
+                <div class="speed-indicator">Speed: <span
+                        id="speed-display">Normal</span></div>
+            </div>
+        </div>
+
+        <main> <!-- Gameplay -->
+            <div id="game-board" class="game-board"></div>
+
+            <div class="game-overlay" id="game-overlay"> <!-- Overlay -->
+                <div class="overlay-content">
+                    <h2 id="overlay-title">Ready to play?</h2>
+                    <p id="overlay-message">Use the arrow keys or buttons to
+                        control the snake</p>
+                    <button id="overlay-button"
+                        class="primary-button">START</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="controls-section"> <!-- Controls -->
+            <div class="options-panel"> <!-- Settings -->
+                <div class="option-group difficulty">
+                    <label for="difficulty-select">Difficulty:</label>
+                    <select id="difficulty-select" class="styled-select">
+                        <option value="debutant">Beginner</option>
+                        <option value="moyen" selected>Medium</option>
+                        <option value="difficile">Hard</option>
+                        <option value="extreme">Extreme</option>
+                    </select>
+                </div>
+
+                <div class="option-group grid-size">
+                    <label for="grid-size-select">Grid:</label>
+                    <select id="grid-size-select" class="styled-select">
+                        <option value="15">15×15</option>
+                        <option value="20" selected>20×20</option>
+                        <option value="25">25×25</option>
+                    </select>
+                </div>
+
+                <div class="option-group color-select">
+                    <label for="snake-color">Color:</label>
+                    <input type="color" id="snake-color" value="#4ECDC4">
+                    <button id="random-color" class="icon-button"
+                        aria-label="Random color">
+                        <i class="fas fa-random"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="directional-controls"> <!-- Navigation -->
+                <button id="up-button" class="control-button">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <div class="horizontal-controls">
+                    <button id="left-button" class="control-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="right-button" class="control-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <button id="down-button" class="control-button">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+
+            <div class="game-buttons"> <!-- Actions -->
+                <button id="start-button" class="primary-button">
+                    <i class="fas fa-play"></i> PLAY
+                </button>
+                <button id="pause-button" class="secondary-button">
+                    <i class="fas fa-pause"></i> PAUSE
+                </button>
+                <button id="reset-button" class="secondary-button">
+                    <i class="fas fa-redo"></i> RESTART
+                </button>
+            </div>
+        </div>
+
+        <div class="game-stats" id="game-stats"> <!-- Statistics -->
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-apple-alt"></i></div>
+                <div class="stat-value" id="food-eaten">0</div>
+                <div class="stat-label">Food</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-bolt"></i></div>
+                <div class="stat-value" id="bonus-eaten">0</div>
+                <div class="stat-label">Bonus</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-stopwatch"></i></div>
+                <div class="stat-value" id="time-played">00:00</div>
+                <div class="stat-label">Time</div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer"> 
+        <a href="../portfolio/Page-index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Previous Page
+        </a>
+    </footer>
+
+    <script src="java.js"></script> 
+</body>
+
+</html>

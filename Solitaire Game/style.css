@@ -1,0 +1,333 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2c8a43;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Main container */
+.main-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1300px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+/* Game container */
+.game-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #2c8a43;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    position: relative;
+}
+
+/* Help section */
+.help-container {
+    width: 350px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    color: #333;
+}
+
+.help-container h2 {
+    color: #2c8a43;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #2c8a43;
+    padding-bottom: 10px;
+}
+
+.help-section {
+    margin-bottom: 20px;
+}
+
+.help-section h3 {
+    color: #2c8a43;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.help-section p, .help-section li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.help-section ol, .help-section ul {
+    padding-left: 20px;
+}
+
+.rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.rules-table th, .rules-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.rules-table th {
+    background-color: #eafaef;
+    color: #2c8a43;
+    font-weight: bold;
+}
+
+.rules-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Game header (counter and button) */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.game-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+#new-game-btn, #play-again-btn {
+    padding: 8px 16px;
+    background-color: #f8f8f8;
+    border: 2px solid #444;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#new-game-btn:hover, #play-again-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Game board */
+.game-board {
+    width: 100%;
+}
+
+/* Top row (deck, waste, foundations) */
+.top-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+/* Tableau row (7 columns) */
+.tableau-row {
+    display: flex;
+    gap: 15px;
+}
+
+/* Card placement styles */
+.card-pile {
+    width: 100px;
+    height: 150px;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Specific placement styles */
+.foundation {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tableau {
+    min-height: 300px;
+}
+
+/* Card styles */
+.card {
+    width: 100px;
+    height: 150px;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+    cursor: pointer;
+    z-index: 1;
+    transform-origin: center center;
+    backface-visibility: hidden;
+}
+
+.face-down {
+    background-color: #3a6ea6;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.1) 10px, rgba(255, 255, 255, 0.1) 20px);
+    border: 2px solid #2a5a8a;
+}
+
+.face-up {
+    background-color: white;
+    border: 2px solid #999;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card.selected {
+    transform: translateY(-10px);
+    box-shadow: 0 0 0 3px yellow, 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+}
+
+/* Card animations */
+@keyframes moveToFoundation {
+    0% { transform: scale(1); z-index: 30; opacity: 1; }
+    50% { transform: scale(1.1) translateY(-20px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); z-index: 30; opacity: 1; }
+    100% { transform: scale(1) translateY(0); z-index: 1; opacity: 1; }
+}
+
+@keyframes moveToTableau {
+    0% { transform: scale(1); z-index: 30; opacity: 1; }
+    50% { transform: scale(1.05) translateY(-15px) rotate(5deg); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); z-index: 30; opacity: 1; }
+    100% { transform: scale(1) translateY(0) rotate(0); z-index: 1; opacity: 1; }
+}
+
+@keyframes flipCard {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(90deg); }
+    100% { transform: rotateY(180deg); }
+}
+
+@keyframes returnToDeck {
+    0% { transform: scale(1) translateX(0); opacity: 1; }
+    100% { transform: scale(0.8) translateX(-100px); opacity: 0; }
+}
+
+.card-moving-to-foundation {
+    animation: moveToFoundation 0.5s ease forwards;
+}
+
+.card-moving-to-tableau {
+    animation: moveToTableau 0.5s ease forwards;
+}
+
+.card-returning-to-deck {
+    animation: returnToDeck 0.5s ease forwards;
+}
+
+/* Card colors */
+.card.red {
+    color: #c13030;
+}
+
+.card.black {
+    color: #222;
+}
+
+/* Card content */
+.card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.card-value {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card-value.top {
+    align-self: flex-start;
+}
+
+.card-value.bottom {
+    align-self: flex-end;
+    transform: rotate(180deg);
+}
+
+.card-suit {
+    font-size: 40px;
+    align-self: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Victory message */
+#win-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.win-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.win-content h2 {
+    margin-bottom: 20px;
+    color: #2c8a43;
+}
+
+.win-content p {
+    margin-bottom: 10px;
+}
+
+.win-content button {
+    margin-top: 20px;
+}
+
+/* Utility class to hide elements */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .help-container {
+        width: 100%;
+        max-width: 900px;
+        margin-top: 30px;
+    }
+}

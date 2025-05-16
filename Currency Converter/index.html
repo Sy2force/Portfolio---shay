@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      padding-top: 70px;
+    }
+  </style>
+</head>
+
+<body> <!-- Content -->
+  <!-- Fixed banner -->
+  <div class="banner-container"> <!-- Ticker -->
+    <div class="live-rates-banner">
+      <div class="ticker-scroll" id="tickerScroll">
+        <span class="ticker-item up">EUR/USD: <span id="eurUsd">1.0861</span> <i
+            class="fas fa-arrow-up"></i></span>
+        <span class="ticker-item down">USD/JPY: <span id="usdJpy">156.78</span>
+          <i class="fas fa-arrow-down"></i></span>
+        <span class="ticker-item up">GBP/USD: <span id="gbpUsd">1.2539</span> <i
+            class="fas fa-arrow-up"></i></span>
+        <span class="ticker-item down">USD/ILS: <span id="usdIls">3.7082</span>
+          <i class="fas fa-arrow-down"></i></span>
+        <span class="ticker-item up">AUD/USD: <span id="audUsd">0.6665</span> <i
+            class="fas fa-arrow-up"></i></span>
+        <span class="ticker-item down">EUR/GBP: <span id="eurGbp">0.8662</span>
+          <i class="fas fa-arrow-down"></i></span>
+        <span class="ticker-item up">USD/CAD: <span id="usdCad">1.3650</span> <i
+            class="fas fa-arrow-up"></i></span>
+        <span class="ticker-item down">USD/CHF: <span id="usdChf">0.9015</span>
+          <i class="fas fa-arrow-down"></i></span>
+        <span class="ticker-item up">NZD/USD: <span id="nzdUsd">0.6055</span> <i
+            class="fas fa-arrow-up"></i></span>
+        <span class="ticker-item down">USD/CNY: <span id="usdCny">7.2245</span>
+          <i class="fas fa-arrow-down"></i></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container"> <!-- Wrapper -->
+    <header> <!-- Branding -->
+      <div class="logo-container">
+        <div class="logo">
+          <i class="fas fa-coins"></i>
+          <h1 class="premium-title"><span class="currency-symbol">$</span>
+            <strong>CurrencyElite</strong> <span
+              class="currency-symbol">€</span>
+          </h1>
+        </div>
+        <div class="tagline">Premium currency conversion</div>
+      </div>
+    </header>
+
+    <div class="banner-container"> <!-- Duplicate -->
+      <div class="live-rates-banner">
+        <div class="ticker-scroll">
+          <span class="ticker-item up">EUR/USD: <span id="eurUsd">1.0861</span>
+            <i class="fas fa-arrow-up"></i></span>
+          <span class="ticker-item down">USD/JPY: <span
+              id="usdJpy">156.78</span> <i class="fas fa-arrow-down"></i></span>
+          <span class="ticker-item up">GBP/USD: <span id="gbpUsd">1.2539</span>
+            <i class="fas fa-arrow-up"></i></span>
+          <span class="ticker-item down">USD/ILS: <span
+              id="usdIls">3.7082</span> <i class="fas fa-arrow-down"></i></span>
+          <span class="ticker-item up">AUD/USD: <span id="audUsd">0.6665</span>
+            <i class="fas fa-arrow-up"></i></span>
+          <span class="ticker-item down">EUR/GBP: <span
+              id="eurGbp">0.8662</span> <i class="fas fa-arrow-down"></i></span>
+          <span class="ticker-item up">USD/CAD: <span id="usdCad">1.3650</span>
+            <i class="fas fa-arrow-up"></i></span>
+          <span class="ticker-item down">USD/CHF: <span
+              id="usdChf">0.9015</span> <i class="fas fa-arrow-down"></i></span>
+          <span class="ticker-item up">NZD/USD: <span id="nzdUsd">0.6055</span>
+            <i class="fas fa-arrow-up"></i></span>
+          <span class="ticker-item down">USD/CNY: <span
+              id="usdCny">7.2245</span> <i class="fas fa-arrow-down"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <main> <!-- Primary -->
+      <div class="converter-card"> <!-- Tool -->
+        <div class="card-header">
+          <h2>Currency Converter</h2>
+        </div>
+
+        <div class="converter-body">
+          <div class="amount-input"> <!-- Value -->
+            <label for="amount">Amount</label>
+            <div class="input-wrapper">
+              <input type="number" id="amount" value="1" min="0" step="0.01">
+            </div>
+          </div>
+
+          <div class="currency-selectors"> <!-- Currencies -->
+            <div class="currency-select">
+              <label for="fromCurrency">From</label>
+              <div class="select-wrapper">
+                <select id="fromCurrency">
+                </select>
+                <div class="flag-icon" id="fromFlag"></div>
+              </div>
+            </div>
+
+            <button id="swapButton" class="swap-button"> <!-- Switch -->
+              <i class="fas fa-exchange-alt"></i>
+            </button>
+
+            <div class="currency-select">
+              <label for="toCurrency">To</label>
+              <div class="select-wrapper">
+                <select id="toCurrency">
+                </select>
+                <div class="flag-icon" id="toFlag"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-container"> <!-- Output -->
+            <div class="result-amount" id="resultValue">1.00</div>
+            <div class="result-currency" id="resultCurrency">EUR</div>
+          </div>
+
+          <div class="rate-info"> <!-- Exchange -->
+            <span id="rateInfo">1 USD = 0.92 EUR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calculator-container collapsed" id="calculatorContainer">
+        <!-- Calculator -->
+        <div class="calculator-toggle" id="calculatorToggle">
+          <i class="fas fa-calculator"></i>
+        </div>
+        <div class="calculator">
+          <div class="calculator-display" id="calcDisplay">0</div>
+          <div class="calculator-keys">
+            <button class="key key-clear" data-action="clear">C</button>
+            <button class="key" data-action="backspace">⌫</button>
+            <button class="key" data-action="percent">%</button>
+            <button class="key key-operation" data-action="divide">÷</button>
+
+            <button class="key" data-value="7">7</button>
+            <button class="key" data-value="8">8</button>
+            <button class="key" data-value="9">9</button>
+            <button class="key key-operation" data-action="multiply">×</button>
+
+            <button class="key" data-value="4">4</button>
+            <button class="key" data-value="5">5</button>
+            <button class="key" data-value="6">6</button>
+            <button class="key key-operation" data-action="subtract">−</button>
+
+            <button class="key" data-value="1">1</button>
+            <button class="key" data-value="2">2</button>
+            <button class="key" data-value="3">3</button>
+            <button class="key key-operation" data-action="add">+</button>
+
+            <button class="key" data-value="0">0</button>
+            <button class="key" data-value=".">.</button>
+            <button class="key key-operation key-equals"
+              data-action="calculate">=</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-container"> <!-- Notes -->
+        <h3>Notepad</h3>
+        <textarea id="userNotes"
+          placeholder="Write your notes here..."></textarea>
+      </div>
+    </main>
+    <footer class="page-footer"> 
+      <a href="../portfolio/Page-index.html" class="back-button">
+        Back to Previous Page
+      </a>
+    </footer>
+  </div>
+
+  <script src="javascript.js"></script> 
+</body>
+
+</html>
