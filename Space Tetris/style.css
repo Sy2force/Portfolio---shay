@@ -467,3 +467,55 @@ body::after {
   pointer-events: none;
   z-index: 1000;
 }
+
+/* Footer avec bouton retour */
+.page-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  z-index: 999;
+}
+
+.back-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 10px var(--accent-color),
+    0 0 20px var(--accent-color);
+  text-shadow: 0 0 5px white;
+}
+
+.back-button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 15px var(--primary-color),
+    0 0 30px var(--primary-color);
+}
+
+.back-button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+  .page-footer {
+    margin-top: 15px;
+    padding: 15px 0;
+  }
+
+  .back-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}

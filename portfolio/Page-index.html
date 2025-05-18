@@ -4,51 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Page title -->
   <title>Professional Portfolio</title>
-  <!-- Import Heebo font from Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Link to CSS stylesheet -->
   <link rel="stylesheet" href="portfolio.css">
 </head>
 
 <body>
-  <!-- Main navigation bar -->
   <nav class="main-nav">
     <div class="nav-container">
-      <!-- Navigation links with anchors -->
       <a href="#home" class="nav-link">Home</a>
       <a href="#about" class="nav-link">About</a>
       <a href="#project" class="nav-link">Projects</a>
+      <a href="#play-center" class="nav-link">Play Center</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
   </nav>
 
-  <!-- Header section with cover photo -->
   <header class="profile-header" id="home">
     <div class="profile-content">
-      <!-- Cover image -->
       <img src="../portfolio/pictures portfolio/couverture.png"
         alt="background photo">
-      <div class="profile-pic">
-      </div>
-      <!-- Profile information -->
       <div class="profile-info">
-        <h1>Shay - Acoca</h1>
-        <p>Portfolio</p>
-        <!-- Portfolio buttons here -->
+        <div class="title-container">
+          <h1>Shay - Acoca</h1>
+          <span class="subtitle">Portfolio</span>
+        </div>
         <div class="profile-buttons">
-          <a href="../portfolio/zip /portfolio -  shay zip.zip" download
-            class="profile-btn download-btn">
+          <a href="../portfolio/zip/portfolio-shay-zip.zip" download
+            class="profile-btn">
             <i class="fas fa-download"></i>
-            Portfolio
+            Download
           </a>
           <a href="https://github.com/Sy2force/Portfolio---shay.git"
-            target="_blank" class="profile-btn github-btn">
+            target="_blank" class="profile-btn">
             <i class="fab fa-github"></i>
             GitHub
           </a>
@@ -57,31 +49,38 @@
     </div>
   </header>
 
-  <!-- Skills section with icons -->
-  <section class="skills-section">
-    <div class="skills-container">
-      <!-- Technology expertise icons -->
-      <div class="skill-icon html-icon"></div>
-      <div class="skill-icon css-icon"></div>
-      <div class="skill-icon js-icon"></div>
+  <div class="tech-logos-container">
+    <div class="logo-item">
+      <div class="logo-title">HTML</div>
+      <div class="logo-bubble html-bubble">
+        <div class="logo-html logo-animate"></div>
+      </div>
     </div>
-  </section>
+    <div class="logo-item">
+      <div class="logo-title">CSS</div>
+      <div class="logo-bubble css-bubble">
+        <div class="logo-css logo-animate"></div>
+      </div>
+    </div>
+    <div class="logo-item">
+      <div class="logo-title">JS</div>
+      <div class="logo-bubble js-bubble">
+        <div class="logo-js logo-animate"></div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Profile photo section -->
   <div class="profile-photo-section">
     <div class="profile-pic">
-      <!-- Logo/Profile photo -->
       <img src="../portfolio/pictures portfolio/shay (200 x 200 px).png"
         alt="Profile photo">
     </div>
   </div>
 
-  <!-- About section with glass effect -->
-  <section class="about-section">
+  <section class="about-section" id="about">
     <div class="glass-card">
       <h2 class="section-title">About Me</h2>
       <div class="about-content">
-        <!-- Introduction text -->
         <div class="about-text">
           <p>My Passion for Digital:
             What I love most about being a Digital Strategist & Designer is
@@ -108,11 +107,10 @@
             visually attractive but also truly useful for those who use it.</p>
         </div>
 
-        <!-- CV download section -->
         <div class="cv-buttons">
           <h3>CV</h3>
           <div class="buttons-container">
-            <a href="../portfolio/zip /C.V copie.zip" class="btn btn-download"
+            <a href="../portfolio/zip/C.V-copie.zip" class="btn btn-download"
               download>
               <svg class="icon" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -134,16 +132,15 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
   </section>
 
   <main>
-    <!-- Projects section -->
-    <section class="projects">
+    <section class="projects" id="project">
       <h2>My Projects</h2>
       <div class="projects-grid">
-
-        <!-- Project 1 - Elite Coffee -->
-        <div class="project-card">
+        <div class="project-card" data-download="../zip/EliteCoffee.zip">
           <img src="../portfolio/pictures portfolio/Logo-caffe.png"
             alt="E-commerce">
           <div class="project-info">
@@ -154,26 +151,29 @@
               Reserve your table
             </p>
             <div class="tech-stack">
-              <!-- Technologies used -->
               <span class="tech-tag">HTML</span>
               <span class="tech-tag">CSS</span>
               <span class="tech-tag">JavaScript</span>
               <span class="tech-tag"><a href="../project 1/option1.html">
                   <i class="back-button">Project - Elite Coffee</i>
                 </a></span>
+              <span class="tech-tag download-tag">
+                <a href="../zip/EliteCoffee.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
             </div>
           </div>
         </div>
 
-        <!-- Project 2 - Pearl Azure -->
-        <div class="project-card">
+        <div class="project-card" data-download="../zip/PearlAzure.zip">
           <img src="../portfolio/pictures portfolio/Azure.png"
             alt="Pearl Azure">
           <div class="project-info">
             <h3>Pearl Azure</h3>
             <p>Reservation</p>
             <div class="tech-stack">
-              <!-- Technologies used -->
               <span class="tech-tag">HTML</span>
               <span class="tech-tag">CSS</span>
               <span class="tech-tag">JavaScript</span>
@@ -181,18 +181,22 @@
                   <i class="back-button"></i>
                   Project - Pearl Azure
                 </a></span>
+              <span class="tech-tag download-tag">
+                <a href="../zip/PearlAzure.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
             </div>
           </div>
         </div>
 
-        <!-- Project 3 - Karting -->
-        <div class="project-card">
+        <div class="project-card" data-download="../zip/Karting.zip">
           <img src="../portfolio/pictures portfolio/Karting.png" alt="karting">
           <div class="project-info">
             <h3>Karting</h3>
             <p>Reservation</p>
             <div class="tech-stack">
-              <!-- Technologies used -->
               <span class="tech-tag">HTML</span>
               <span class="tech-tag">CSS</span>
               <span class="tech-tag">JavaScript</span>
@@ -200,19 +204,23 @@
                   <i class="back-button"></i>
                   Project - Karting
                 </a></span>
+              <span class="tech-tag download-tag">
+                <a href="../zip/Karting.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
             </div>
           </div>
         </div>
 
-        <!-- Project 4 - Summer Festival -->
-        <div class="project-card">
+        <div class="project-card" data-download="../zip/SummerFestival.zip">
           <img src="../portfolio/pictures portfolio/festival logo.png"
             alt="Summer Festival">
           <div class="project-info">
             <h3>Summer Festival</h3>
             <p>Ticket Booking</p>
             <div class="tech-stack">
-              <!-- Technologies used -->
               <span class="tech-tag">HTML</span>
               <span class="tech-tag">CSS</span>
               <span class="tech-tag">JavaScript</span>
@@ -222,19 +230,23 @@
                   Book - Festival
                 </a>
               </span>
+              <span class="tech-tag download-tag">
+                <a href="../zip/SummerFestival.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
             </div>
           </div>
         </div>
 
-        <!-- Project 5 - Tennis Club Elite -->
-        <div class="project-card">
+        <div class="project-card" data-download="../zip/TennisClubElite.zip">
           <img src="../portfolio/pictures portfolio/tennis2.png"
             alt="Tennis Booking">
           <div class="project-info">
             <h3>Tennis Club Elite</h3>
             <p>Online tennis court booking</p>
             <div class="tech-stack">
-              <!-- Technologies used -->
               <span class="tech-tag">HTML</span>
               <span class="tech-tag">CSS</span>
               <span class="tech-tag">JavaScript</span>
@@ -244,19 +256,23 @@
                   Book - Tennis
                 </a>
               </span>
+              <span class="tech-tag download-tag">
+                <a href="../zip/TennisClubElite.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
             </div>
           </div>
         </div>
 
-        <!-- Project 6 - Cyber Nights Cinema -->
-        <div class="project-card">
+        <div class="project-card" data-download="../zip/CyberNightsCinema.zip">
           <img src="../portfolio/pictures portfolio/movie2.png"
             alt="Cinema Booking">
           <div class="project-info">
             <h3>Cyber Nights Cinema</h3>
             <p>Online movie ticket booking</p>
             <div class="tech-stack">
-              <!-- Technologies used -->
               <span class="tech-tag">HTML</span>
               <span class="tech-tag">CSS</span>
               <span class="tech-tag">JavaScript</span>
@@ -266,151 +282,292 @@
                   Book - Cinema
                 </a>
               </span>
+              <span class="tech-tag download-tag">
+                <a href="../zip/CyberNightsCinema.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
             </div>
           </div>
         </div>
-    </section>
-
-    <!-- Play Center section with improved project cards -->
-    <section class="play-center" id="play-center">
-      <h2>PLAY CENTER</h2>
-      <p>להזיז אפשרות כל אחרים לפונקציות ואת בעזרת הסמלי הלוח ולשמוש כמובמות
-        האלמנטים <br>
-        "לולאה פשוט" בעת עיצוב. זהו הנה.</p>
-
-<div class="projects-grid">
-        <!-- Project 1 - TO-DO LIST -->
-        <a href="../TaskFlow/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/to do list .png" alt="TO-DO LIST">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-            <h3>TO-DO LIST</h3>
-          </div>
-        </a>
-
-        <!-- Project 2 - MEMORY GAME -->
-        <a href="../Memory Game/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/MEMORIE.png" alt="MEMORIE">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-          </div>
-        </a>
-
-        <!-- Project 3 - PUISSANCE 4 -->
-        <a href="../Connect 4/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/Puissance 4.png" alt="PUISSANCE 4">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-            <h3>CONNECT 4</h3>
-          </div>
-        </a>
-        
-        <!-- Project 4 - TETRIS -->
-        <a href="../Space Tetris/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/Tetrise.png" alt="TETRIS">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-            <h3>TETRIS</h3>
-          </div>
-        </a>
-        
-        <!-- Project 5 - SNAKE GAME-->
-        <a href="../Game snake/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/Snake.png" alt="SNAKE GAME">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-            <h3>SNAKE GAME</h3>
-          </div>
-        </a>
-
-        <!-- Project 6 - SOLITAIRE -->
-        <a href="../Solitaire Game/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/Solitaire.png" alt="SOLITAIRE">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-            <h3>SOLITAIRE</h3>
-          </div>
-        </a>
-
-        <!-- Project 7 - Invoice Generator -->
-        <a href="../Invoice Generator/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/FACTURE.png" alt="Invoice Generator">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-            <h3> Invoice Generator</h3>
-          </div>
-        </a>
-
-        <!-- Project 8 - Contact Manager -->
-        <a href="../Contact Manager/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/CONTACT.png" alt=" Contact Manager">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-            <h3>Contact Manager</h3>
-          </div>
-        </a>
-        
-        <!-- Project 9 - CURRENCY Converter  -->
-        <a href="../Currency Converter/index.html" class="project-card">
-          <div class="project-img">
-            <img src="../Pictures JS/PLANNING.png" alt="CURRENCY Converter">
-          </div>
-          <div class="js-logo"></div>
-          <div class="project-overlay">
-            <h3>CURRENCY Converter</h3>
-          </div>
-        </a>
       </div>
     </section>
 
-    <!-- Contact section with form -->
-    <section class="contact-section" id="contact">
-      <!-- Decorative envelope element -->
-      <div class="contact-envelope"></div>
 
-      <!-- Contact form container -->
+    <!-- PLAY CENTER -->
+    <section class="play-center" id="play-center">
+      <h2>PLAY CENTER</h2>
+      <p>גלו עולם של יצירות JavaScript שבו קוד חדשני ואינטראקציות מרתקות משתלבים
+        יחד<br>
+        כדי להפוך את החוויה הדיגיטלית למסעירה ובלתי נשכחת</p>
+
+      <div class="projects-grid">
+        <!-- Game 1 - TO-DO LIST -->
+        <div class="project-card" data-download="assets/downloads/TaskFlow.zip">
+          <img src="../Pictures JS/to do list .png" alt="TO-DO LIST"
+            loading="lazy">
+          <div class="project-info">
+            <h3>TO-DO LIST</h3>
+            <p>Task management application</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../TaskFlow/index.html">
+                  <i class="fas fa-play"></i>Play Game
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/TaskFlow 2.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 2 - MEMORY GAME -->
+        <div class="project-card"
+          data-download="assets/downloads/MemoryGame.zip">
+          <img src="../Pictures JS/MEMORIE.png" alt="MEMORY GAME"
+            loading="lazy">
+          <div class="project-info">
+            <h3>MEMORY GAME</h3>
+            <p>Find matching pairs of cards</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../Memory Game/index.html">
+                  <i class="fas fa-play"></i>Play Game
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/Memory Game.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 3 - CONNECT 4 -->
+        <div class="project-card" data-download="assets/downloads/Connect4.zip">
+          <img src="../Pictures JS/Puissance 4.png" alt="CONNECT 4"
+            loading="lazy">
+          <div class="project-info">
+            <h3>CONNECT 4</h3>
+            <p>Classic alignment strategy game</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../Connect 4/index.html">
+                  <i class="fas fa-play"></i>Play Game
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/Connect 4.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 4 - TETRIS -->
+        <div class="project-card"
+          data-download="assets/downloads/SpaceTetris.zip">
+          <img src="../Pictures JS/Tetrise.png" alt="TETRIS" loading="lazy">
+          <div class="project-info">
+            <h3>TETRIS</h3>
+            <p>Classic block-stacking puzzle game</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../Space Tetris/index.html">
+                  <i class="fas fa-play"></i>Play Game
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/Space Tetris.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 5 - SNAKE GAME -->
+        <div class="project-card"
+          data-download="assets/downloads/GameSnake.zip">
+          <img src="../Pictures JS/Snake.png" alt="SNAKE GAME" loading="lazy">
+          <div class="project-info">
+            <h3>SNAKE GAME</h3>
+            <p>Classic snake navigation game</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../Game snake/index.html">
+                  <i class="fas fa-play"></i>Play Game
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/Game snake.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 6 - SOLITAIRE -->
+        <div class="project-card"
+          data-download="assets/downloads/SolitaireGame.zip">
+          <img src="../Pictures JS/Solitaire.png" alt="SOLITAIRE"
+            loading="lazy">
+          <div class="project-info">
+            <h3>SOLITAIRE</h3>
+            <p>Classic card game</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../Solitaire Game/index.html">
+                  <i class="fas fa-play"></i>Play Game
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/Solitaire Game.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 7 - Invoice Generator -->
+        <div class="project-card"
+          data-download="assets/downloads/InvoiceGenerator.zip">
+          <img src="../Pictures JS/FACTURE.png" alt="Invoice Generator"
+            loading="lazy">
+          <div class="project-info">
+            <h3>Invoice Generator</h3>
+            <p>Create professional invoices</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../Invoice Generator/index.html">
+                  <i class="fas fa-tools"></i>Use Tool
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/Invoice Generator.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 8 - Contact Manager -->
+        <div class="project-card"
+          data-download="assets/downloads/ContactManager.zip">
+          <img src="../Pictures JS/CONTACT.png" alt="Contact Manager"
+            loading="lazy">
+          <div class="project-info">
+            <h3>Contact Manager</h3>
+            <p>Manage your contacts efficiently</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../Contact Manager/index.html">
+                  <i class="fas fa-tools"></i>Use Tool
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/Contact Manager.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 9 - Currency Converter -->
+        <div class="project-card"
+          data-download="assets/downloads/CurrencyConverter.zip">
+          <img src="../Pictures JS/PLANNING.png" alt="Currency Converter"
+            loading="lazy">
+          <div class="project-info">
+            <h3>Currency Converter</h3>
+            <p>Convert between different currencies</p>
+            <div class="tech-stack">
+              <span class="tech-tag">
+                <a href="../Currency Converter/index.html">
+                  <i class="fas fa-tools"></i>Use Tool
+                </a>
+              </span>
+              <span class="tech-tag download-tag">
+                <a href="../portfolio/zip.js/Currency Converter.zip" download>
+                  <i class="fas fa-download"></i>
+                  Download
+                </a>
+              </span>
+            </div>
+            <div class="js-badge">
+              <div class="js-logo"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="contact-section" id="contact">
       <div class="contact-container">
         <h2>Contact</h2>
         <form class="contact-form" id="contactForm">
-          <!-- Name field -->
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
           </div>
-          <!-- Email field -->
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
           </div>
-          <!-- Message field -->
           <div class="form-group">
             <label for="message">Message</label>
             <textarea id="message" name="message" required></textarea>
           </div>
-          <!-- Submit button -->
           <button type="submit">Send</button>
         </form>
       </div>
+
+      <div class="contact-envelope"></div>
     </section>
   </main>
-
-  <!-- Placeholder for JavaScript script -->
   <script src="javascript.js"></script>
 </body>
 
